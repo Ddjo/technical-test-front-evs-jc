@@ -1,0 +1,14 @@
+
+<div class="item-form-container flex-column	gap-8" [formGroup]="itemForm">
+    <div>
+        <label for="label" class="col-fixed" >New item label</label>
+        <div class="col">
+            <input id="label" pInputText formControlName="label"  type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
+        </div>
+    </div>
+
+    <div class="buttons-container flex gap-4" >
+        <p-button label="Back to items list"  [routerLink]="'/items'"/>
+        <p-button label="Submit"  (click)="submitItem()"/>
+    </div>
+</div>

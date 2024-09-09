@@ -1,0 +1,34 @@
+<title>
+    Items
+</title> 
+
+<div class="flex flex-column	gap-4">
+
+    <div *ngIf="isLoading$ | async">Loading...</div>
+    
+    <div *ngIf="error$ | async as error">{{ error }}</div>
+    
+    <p-table *ngIf="items$ | async as items" [value]="items" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:100px">Id</th>
+                <th>Label</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.label }}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="5">No items</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+    <div>
+        <p-button label="New item"  [routerLink]="'new'"/>
+    </div>
+</div>
